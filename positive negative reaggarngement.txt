@@ -1,0 +1,59 @@
+package com.company;
+
+public class Main {
+static class rearrange{
+    void sort(int arr[] ,int n){ //sorting of an array
+        System.out.println("After sorting of an array");
+        for(int i=0 ; i<n ;i++){
+            for(int j=i+1 ;j<n ;j++) {
+                if (arr[j] > arr[i]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        for(int i=0 ; i<n ;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println("");
+    }
+
+    //modification
+    void modification(int arr[] ,int n , int start , int end){
+            while(start < end){
+                int pos = start +1;
+                if(pos%2 == 0){
+                    int temp =arr[start];
+                    arr[start] =arr[end];
+                    arr[end] = temp;
+                    System.out.print(arr[start]+" ");
+                    start++;
+                    end--;
+                }
+                if(pos%2 !=0){
+                    System.out.print(arr[start]+" ");
+                    start++;
+                }
+            }
+        for(int i=n-1; i>=start;i--){
+            System.out.print(arr[i]+" ");
+        }
+
+    }
+}
+    public static void main(String[] args) {
+	// write your code here
+        rearrange re = new rearrange();
+        int arr[]={-1 , 2 , -3 , 4 , 5, 6 , -7 , 8 , 9};
+        System.out.println("Before rearrangement of array:");
+        int n = arr.length;
+        System.out.println(n);
+        for(int i=0 ; i<n ; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println("");
+        re.sort(arr,n);
+        re.modification(arr,n,0,n-1);
+    }
+}
